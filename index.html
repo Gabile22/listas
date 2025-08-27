@@ -1,13 +1,13 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
   <title>Lista de Exercícios</title>
 </head>
 <body>
-  <h1>Exercícios</h1>
+  <h1>Exercícios</h1> -->
 
-  <h2>Exercício 1</h2>
+  <!-- <h2>Exercício 1</h2>
   <button onclick="boasVindas()">Boas-vindas</button>
 
   <br><br>
@@ -31,7 +31,49 @@
 
   <h2>Exercício 5</h2>
   <button onclick="mostrarData()">Mostrar Data Atual</button>
-  <button onclick="diasAniversario()">Dias até o Aniversário</button>
+  <button onclick="diasAniversario()">Dias até o Aniversário</button> -->
 
-<script src="lista1.js"></script>
+
+  <!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Revisão JS Completa</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; }
+    button { margin: 5px; padding: 8px; cursor: pointer; }
+    input { margin: 5px; padding: 5px; }
+  </style>
+</head>
+<body>
+  <h1 id="tituloPrincipal">Título da Página</h1>
+  <p id="paragrafoPrincipal">Este é um parágrafo inicial.</p>
+
+  <ul id="listaItens">
+    <li>Item 1</li>
+  </ul>
+
+  <h2>Manipulação do DOM</h2>
+  <button onclick="alterarTexto()">Trocar Texto</button>
+  <button onclick="alterarFundo()">Mudar Fundo</button>
+  <button onclick="adicionarLista()">Adicionar Item</button>
+  <button onclick="removerParagrafoPrincipal()">Remover Parágrafo</button>
+  <button onclick="customizarPagina()">Personalizar Página</button>
+
+  <h2>Eventos DOM</h2>
+  <input type="text" id="inputTexto" placeholder="Digite algo...">
+  <p id="saidaTexto"></p>
+
+  <button id="btnMouseOver">Passe o mouse aqui</button>
+
+
+  <p id="paragrafoEscondido">Esse texto vai sumir ao dar duplo clique no botão.</p>
+  <button id="btnDblClick">Clique duas vezes para esconder</button>
+
+ 
+  <p id="paragrafoFonte">Texto com fonte que muda de tamanho!</p>
+  <button id="btnMudarFonte">Alterar fonte</button>
+
+  <script src="lista2.js"></script>
 </body>
+</html>
