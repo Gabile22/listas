@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lista de exercícios</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      text-align: center;
+    }
+
+    img {
+      max-width: 100%;
+      object-fit: cover;
+    }
+
+    #banner1, #banner2 {
+      width: 100%;
+      max-height: 300px;
+      margin-bottom: 30px;
+    }
+
+    #lampada {
+      width: 150px;
+      margin-top: 30px;
+      cursor: pointer;
+    }
+
+    #perfil {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid #81356a;
+      margin-top: 30px;
+    }
+
+    button {
+      margin-top: 15px;
+      padding: 10px 20px;
+      font-size: 16px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      background-color: #a74caf;
+      color: white;
+    }
+
+    button:hover {
+      background-color: #7b45a0;
+    }
+
+    #imagem-grande {
+      width: 400px;
+      height: 300px;
+      object-fit: cover;
+      border: 3px solid #81356a;
+      border-radius: 10px;
+      margin: 30px auto 20px;
+      display: block;
+    }
+
+    .miniaturas {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin-bottom: 40px;
+    }
+
+    .miniaturas img {
+      width: 100px;
+      height: 70px;
+      object-fit: cover;
+      border: 2px solid #ccc;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: transform 0.2s, border 0.2s;
+    }
+
+    .miniaturas img:hover {
+      transform: scale(1.1);
+      border-color: #a74caf;
+    }
+
+    #carrossel-img {
+      width: 400px;
+      height: 300px;
+      object-fit: cover;
+      border: 3px solid #81356a;
+      border-radius: 10px;
+      margin: 30px auto 20px;
+      display: block;
+    }
+
+    .botoes-carrossel button {
+      margin: 0 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Ex 1 -->
+  <h1>Exercício 1: Troca de Banner</h1>
+  <img id="banner1" src="img/img2.jpg" alt="Banner">
+
+  <!-- Ex 2 -->
+  <h1>Exercício 2: Lâmpada</h1>
+  <img id="lampada" src="img/lamapa.jpg" alt="Lâmpada">
+
+  <!-- Ex 4 -->
+  <h1>Exercício 4: Foto de Perfil</h1>
+  <img id="perfil" src="img/ftperfil.jpg" alt="Foto de Perfil">
+  <br>
+  <button id="trocar">Trocar Foto</button>
+
+  <!-- Ex 5 -->
+  <h1>Exercício 5: Galeria </h1>
+  <img id="imagem-grande" src="img/foto1.jpg" alt="Imagem Grande">
+  <div class="miniaturas">
+    <img src="img/foto1.jpg" alt="Foto 1" onclick="trocarImagem('img/foto1.jpg')">
+    <img src="img/foto2.jpg" alt="Foto 2" onclick="trocarImagem('img/foto2.jpg')">
+    <img src="img/foto3.jpg" alt="Foto 3" onclick="trocarImagem('img/foto3.jpg')">
+  </div>
+
+  <!-- Ex 6 -->
+  <h1>Exercício 6: Banner com 3 Versões</h1>
+  <img id="banner2" src="img/ft1.jpg" alt="Banner">
+
+  <!-- Ex 7 -->
+  <h1>Exercício 7: Carrossel </h1>
+  <img id="carrossel-img" src="img/carr1.jpg" alt="Carrossel">
+  <div class="botoes-carrossel">
+    <button id="anterior">Anterior</button>
+    <button id="proxima">Próxima</button>
+  </div>
+
+  <script>
+    // -------- Exercício 1 --------
+    function trocaBanner1() {
+      const banner = document.getElementById("banner1");
+      if (window.innerWidth <= 600) {
+        banner.src = "img/img1.jpg"; 
+      } else {
+        banner.src = "img/img2.jpg"; 
+      }
+    }
+    trocaBanner1();
+    window.addEventListener("resize", trocaBanner1);
+
+    // -------- Exercício 2 --------
+    const lampada = document.getElementById("lampada");
+    let acesa = false;
+    lampada.addEventListener("click", () => {
+      if (acesa) {
+        lampada.src = "img/lamap.jpg";
+        acesa = false;
+      } else {
+        lampada.src = "img/lamaces.jpg";
+        acesa = true;
+      }
+    });
+
+    // -------- Exercício 4 --------
+    const perfil = document.getElementById("perfil");
+    const botao = document.getElementById("trocar");
+    let alternar = false;
+    botao.addEventListener("click", () => {
+      if (alternar) {
+        perfil.src = "img/ftperfil.jpg";
+        alternar = false;
+      } else {
+        perfil.src = "img/ftperfil2.jpg";
+        alternar = true;
+      }
+    });
+
+    // -------- Exercício 5 --------
+    function trocarImagem(src) {
+      const grande = document.getElementById("imagem-grande");
+      grande.src = src;
+    }
+
+    // -------- Exercício 6 --------
+    function trocaBanner2() {
+      const banner = document.getElementById("banner2");
+      const largura = window.innerWidth;
+      if (largura < 600) {
+        banner.src = "img/ft3.jpg";
+      } else if (largura >= 600 && largura <= 1024) {
+        banner.src = "img/ft2.jpg";
+      } else {
+        banner.src = "img/ft1.jpg";
+      }
+    }
+    trocaBanner2();
+    window.addEventListener("resize", trocaBanner2);
+
+    // -------- Exercício 7 --------
+    const imagensCarrossel = ["img/carr1.jpg", "img/carr2.jpg", "img/carr3.jpg"];
+    let indiceCarrossel = 0;
+    const carrosselImg = document.getElementById("carrossel-img");
+    const botaoProxima = document.getElementById("proxima");
+    const botaoAnterior = document.getElementById("anterior");
+
+    botaoProxima.addEventListener("click", () => {
+      indiceCarrossel++;
+      if (indiceCarrossel >= imagensCarrossel.length) indiceCarrossel = 0;
+      carrosselImg.src = imagensCarrossel[indiceCarrossel];
+    });
+
+    botaoAnterior.addEventListener("click", () => {
+      indiceCarrossel--;
+      if (indiceCarrossel < 0) indiceCarrossel = imagensCarrossel.length - 1;
+      carrosselImg.src = imagensCarrossel[indiceCarrossel];
+    });
+  </script>
+</body>
+</html>
